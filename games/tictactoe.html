@@ -62,21 +62,27 @@
             computerTurn = !computerTurn;
 
             if (computerTurn) {
-                var randomRow = Math.floor(Math.random() * 3);
-                var randomCell = Math.floor(Math.random() * 3);
-                var chosenCell = document.getElementById(randomRow + "-" + randomCell);
+                var chosenCell = getRandomCell();
                 var cellCount = 0;
 
                 while (chosenCell.innerHTML != "" && cellCount < 9) {
-                    randomRow = Math.floor(Math.random() * 3);
-                    randomCell = Math.floor(Math.random() * 3);
-                    chosenCell = document.getElementById(randomRow + "-" + randomCell);
+                    chosenCell = getRandomCell();
                     cellCount++;
                 }
 
-                markCell(chosenCell,"O");
+                if (cellCount < 9) {
+                    markCell(chosenCell,"O");
+                }
+
                 computerTurn = !computerTurn;
             }
+        }
+
+        function getRandomCell() {
+            var randomRow = Math.floor(Math.random() * 3);
+            var randomCell = Math.floor(Math.random() * 3);
+            var chosenCell = document.getElementById(randomRow + "-" + randomCell);
+            return chosenCell;
         }
 
         function markCell(cell,symbol) {
