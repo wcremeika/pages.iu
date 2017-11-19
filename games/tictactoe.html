@@ -41,7 +41,6 @@
     </body>
     <script type="text/javascript">
         var gameTable = document.getElementById('gameTable');
-        var computerTurn = false;
 
         for(var i = 0;i < 3;i++) {
             var row = document.createElement("tr");
@@ -56,12 +55,15 @@
             gameTable.append(row);
         }
 
+        var computerTimer = null;
+
         function makeSelection(cell) {
             var clickedCell = document.getElementById(cell.id);
             markCell(clickedCell,"X");
-            computerTurn = !computerTurn;
+            //computerTurn = !computerTurn;
 
-            if (computerTurn) {
+            //if (computerTurn) {
+                /*
                 var chosenCell = getRandomCell();
                 var cellCount = 0;
 
@@ -69,12 +71,34 @@
                     chosenCell = getRandomCell();
                     cellCount++;
                 }
-
                 if (cellCount < 9) {
                     markCell(chosenCell,"O");
                 }
-
                 computerTurn = !computerTurn;
+                */
+                computerTimer = setInterval(computerTurn,5000);
+            //}
+        }
+
+        var cellCount = 0;
+
+        function computerTurn() {
+            var chosenCell = getRandomCell();
+            console.log("picking cell");
+
+            if (chosenCell.innerHTML != "") {
+                console.log("cell taken");
+                cellCount++;
+
+                if (cellCount == 9) {
+                    console.log("tried all cells taken");
+                    clearInterval(computerTimer);
+                }
+            }
+            else {
+                console.log("cell not taken");
+                markCell(chosenCell,"O");
+                clearInterval(computerTimer);
             }
         }
 
