@@ -1,0 +1,17 @@
+#symbolArea {
+    margin-top: 10px;
+}
+
+#symbolArea img {
+    width: 100px;
+    height: 125px;
+    display: inline;
+    border: 1px solid #000;
+    margin-right: 10px;
+}
+
+#errorDiv {
+    width: 25%;
+    color: #a94442;
+    background-color: #f2dede;
+}

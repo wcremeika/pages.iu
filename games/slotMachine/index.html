@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="slotMachine.css" />
+<div id="errorDiv" style="display: none;"></div>
+Enter starting amount (max 1000)
+<input type="text" id="startingAmount" size="10" />
+<button type="button" onclick="startGame()">Start Game</button>
+<div id="playerMoneyDiv" style="display:none;">
+    Player's money:
+    $ <span id="playerMoneySpan" ></span>
+</div>
+<div id="symbolArea">
+    <img src="img/questionMark.png" id="slot1" />
+    <img src="img/questionMark.png" id="slot2" />
+    <img src="img/questionMark.png" id="slot3" />
+</div>
+
+Enter wager amount
+<input type="text" id="wager" size="10" /> <br />
+<button id="spinButton" type="button" onclick="spin();">Spin</button>
+
+<script type="text/javascript" src="slotMachine.js"></script>
